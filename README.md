@@ -1,49 +1,45 @@
-# 🧠 NeuroScan: Brain Tumor Detection from MRI Using Deep Learning
+# 🧠 neuroscan — brain tumor detection (mri)
 
-NeuroScan is a deep learning project that detects brain tumors from MRI scans using a Convolutional Neural Network (CNN). It classifies MRI images into two categories  **(Brain Tumor** and **Healthy)**, providing a powerful tool for early and automated medical diagnosis.
+![Python](https://img.shields.io/badge/Python-3.9-blue?logo=python)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange?logo=tensorflow)
+![Keras](https://img.shields.io/badge/Keras-Deep%20Learning-red?logo=keras)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
----
-
-## 🚀 Project Highlights
-
-- ✅ Binary image classification of brain MRI scans
-- 🧠 Uses **MobileNet** with transfer learning and a custom CNN model
-- 🗂 Dataset split into 70% training, 15% validation, and 15% testing
-- 📉 Includes early stopping and model checkpointing
-- 📊 Accuracy/Loss visualizations and evaluation on unseen data
+a deep learning project that detects brain tumors from mri scans using **mobilenet** and a **custom cnn** — built for fast, accurate, and automated diagnosis.
 
 ---
 
-## 📁 Dataset
-
-The dataset consists of MRI scan images in two categories:
-
-- `Brain Tumor`
-- `Healthy`
-
-> The dataset is manually split and preprocessed into `train`, `val`, and `test` folders.
+## 🚀 highlights
+- ✅ binary classification of brain mri scans  
+- 🧠 mobilenet (transfer learning) + custom cnn  
+- 📊 70/15/15 train • val • test split  
+- ⏳ early stopping + model checkpointing  
+- 📈 accuracy/loss visualizations on unseen data  
 
 ---
 
-## 🔧 Model Architectures
-
-### 1. Custom CNN:
-- Multiple `Conv2D` + `MaxPooling` layers
-- Final `Dense` layer with sigmoid activation for binary classification
-
-### 2. Transfer Learning with MobileNet:
-- Base: MobileNet (pre-trained on ImageNet)
-- Custom classifier head: `Flatten → Dense(1, sigmoid)`
-
-> Only the classifier head is trainable; the MobileNet base is frozen.
+## 📁 dataset
+- **classes:** brain tumor | healthy  
+- manually split + preprocessed into:
+  - train  
+  - val  
+  - test  
 
 ---
 
-## 📈 Training Details
+## 🛠 model architectures
+**1️⃣ custom cnn**  
+- stacked conv2d + maxpooling layers  
+- dense layer with sigmoid activation for binary output  
 
-- Optimizer: `Adam` / `RMSProp`
-- Loss: `binary_crossentropy`
-- Epochs: 30
-- Callbacks:
-  - `ModelCheckpoint` to save the best model
-  - `EarlyStopping` based on validation accuracy
+**2️⃣ mobilenet (transfer learning)**  
+- pretrained on imagenet (frozen base)  
+- custom classifier: flatten → dense(1, sigmoid)  
+
+---
+
+## ⚙️ training details
+- **optimizer:** adam / rmsprop  
+- **loss:** binary_crossentropy  
+- **epochs:** 30  
+- **callbacks:** earlystopping (val_accuracy), modelcheckpoint (best model only)  
